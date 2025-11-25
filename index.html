@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Quantum Solver Pro - Ultimate Physics</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="intro-screen">
+        <div class="intro-content">
+            <h1 class="intro-name">Quantum Solver Pro</h1>
+            <p class="intro-tagline">Master Physics. Defy Limits.</p>
+            <p class="intro-credit">Created by Utkarsh Salido</p>
+        </div>
+    </div>
+
+    <div id="copy-toast"><i class="fa-solid fa-clipboard-check"></i> UPI ID copied successfully!</div>
+
+    <div id="upi-modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideUpiModal()">&times;</span>
+            <h3 style="margin-top:0"><i class="fa-solid fa-heart" style="color:#ff7b72"></i> Support Development</h3>
+            <p style="color:#c9d1d9; font-size:0.95em;">Your support keeps this tool free and ad-free. Donate via any UPI app:</p>
+            <div class="upi-display" id="upiDisplay">YOUR_UPI_ID_HERE@bank</div>
+            <button class="copy-btn" onclick="copyUpiId()"><i class="fa-solid fa-copy"></i> Copy UPI ID</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">Q</div>
+            <div>
+                <h1>Quantum<span>Pro</span></h1>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="donate-btn" onclick="showUpiModal()" title="Support Me">
+                <i class="fa-solid fa-coffee"></i> <span>Donate</span>
+            </button>
+            <button class="icon-btn" onclick="toggleSimpleCalc()" title="Calculator">
+                <i class="fa-solid fa-calculator"></i>
+            </button>
+        </div>
+    </header>
+
+    <div id="simple-calc-modal">
+        <div style="display:flex; justify-content:space-between; margin-bottom:10px; color:#8b949e;">
+            <span><i class="fa-solid fa-microchip"></i> Basic Calc</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleSimpleCalc()"></i>
+        </div>
+        <div class="sc-display" id="scDisplay">0</div>
+        <div class="sc-grid">
+            <button class="sc-btn clear" onclick="clearCalc()">AC</button>
+            <button class="sc-btn del" onclick="backspaceCalc()"><i class="fa-solid fa-delete-left"></i></button>
+            <button class="sc-btn op" onclick="addToCalc('/')">÷</button>
+            <button class="sc-btn op" onclick="addToCalc('*')">×</button>
+            <button class="sc-btn" onclick="addToCalc('7')">7</button>
+            <button class="sc-btn" onclick="addToCalc('8')">8</button>
+            <button class="sc-btn" onclick="addToCalc('9')">9</button>
+            <button class="sc-btn op" onclick="addToCalc('-')">−</button>
+            <button class="sc-btn" onclick="addToCalc('4')">4</button>
+            <button class="sc-btn" onclick="addToCalc('5')">5</button>
+            <button class="sc-btn" onclick="addToCalc('6')">6</button>
+            <button class="sc-btn op" onclick="addToCalc('+')">+</button>
+            <button class="sc-btn" onclick="addToCalc('1')">1</button>
+            <button class="sc-btn" onclick="addToCalc('2')">2</button>
+            <button class="sc-btn" onclick="addToCalc('3')">3</button>
+            <button class="sc-btn op" style="grid-row: span 2; background-color: var(--success-color);" onclick="calculateResult()">=</button>
+            <button class="sc-btn" onclick="addToCalc('0')" style="grid-column: span 2;">0</button>
+            <button class="sc-btn" onclick="addToCalc('.')">.</button>
+        </div>
+    </div>
+
+    <main>
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search physics formulas (e.g., Force, Energy, Wave)..." oninput="filterFormulas()"/>
+        </div>
+
+        <div class="tags-container" id="categoryTags">
+            <span class="tag active" onclick="filterCategory('All', this)">All</span>
+            <span class="tag" onclick="filterCategory('Mechanics', this)">Mechanics</span>
+            <span class="tag" onclick="filterCategory('Electricity', this)">Electricity</span>
+            <span class="tag" onclick="filterCategory('Waves', this)">Waves</span>
+            <span class="tag" onclick="filterCategory('Thermodynamics', this)">Heat</span>
+            <span class="tag" onclick="filterCategory('Quantum', this)">Quantum</span>
+        </div>
+
+        <div id="formulas-container">
+            </div>
+    </main>
+
+    <div class="chat-toggle-btn" onclick="toggleChat()">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+
+    <div id="ai-widget">
+        <div class="chat-header">
+            <span><i class="fa-solid fa-brain"></i> Physics AI Assistant</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleChat()"></i>
+        </div>
+        <div class="iframe-container">
+            <iframe id="aiFrame" src="about:blank" allow="microphone"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
