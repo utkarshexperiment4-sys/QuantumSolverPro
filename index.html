@@ -2,74 +2,69 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Quantum Solver Pro - Ultimate Physics</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-
-    <!-- Polyfill & MathJax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- INTRO -->
-    <div id="intro-screen" aria-hidden="false">
+    <div id="intro-screen">
         <div class="intro-content">
-            <h1 class="intro-name">Quantum Solver     Pro</h1>
-            <p class="intro-credit">Created by Utkarsh Maurya</p>
+            <h1 class="intro-name">Quantum Solver Pro</h1>
+            <p class="intro-tagline">Master Physics. Defy Limits.</p>
+            <p class="intro-credit">Created by Utkarsh Salido</p>
         </div>
     </div>
 
-    <!-- TOAST -->
-    <div id="copy-toast"><i class="fa-solid fa-clipboard-check"></i> UPI ID सफलतापूर्वक कॉपी हो चुकी है!</div>
+    <div id="copy-toast"><i class="fa-solid fa-clipboard-check"></i> UPI ID copied successfully!</div>
 
-    <!-- UPI MODAL -->
-    <div id="upi-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div id="upi-modal">
         <div class="modal-content">
-            <span class="close" onclick="hideUpiModal()" aria-label="Close">&times;</span>
-            <h3><i class="fa-solid fa-hand-holding-dollar"></i> UPI ID से सपोर्ट करें</h3>
-            <p>इस UPI ID को कॉपी करें और अपने UPI ऐप से सपोर्ट करें:</p>
+            <span class="close" onclick="hideUpiModal()">&times;</span>
+            <h3 style="margin-top:0"><i class="fa-solid fa-heart" style="color:#ff7b72"></i> Support Development</h3>
+            <p style="color:#c9d1d9; font-size:0.95em;">Your support keeps this tool free and ad-free. Donate via any UPI app:</p>
             <div class="upi-display" id="upiDisplay">YOUR_UPI_ID_HERE@bank</div>
-            <button class="copy-btn" onclick="copyUpiId()"><i class="fa-solid fa-copy"></i> UPI ID कॉपी करें</button>
+            <button class="copy-btn" onclick="copyUpiId()"><i class="fa-solid fa-copy"></i> Copy UPI ID</button>
         </div>
     </div>
 
-    <!-- HEADER -->
     <header>
         <div class="logo">
             <div class="logo-icon">Q</div>
-            <h1>Quantum Solver <span>Pro</span></h1>
+            <div>
+                <h1>Quantum<span>Pro</span></h1>
+            </div>
         </div>
         <div class="header-actions">
-            <button class="donate-btn" onclick="showUpiModal()" title="Donate / Support">
-                <i class="fa-solid fa-hand-holding-dollar"></i> Donate
+            <button class="donate-btn" onclick="showUpiModal()" title="Support Me">
+                <i class="fa-solid fa-coffee"></i> <span>Donate</span>
             </button>
-            <button class="icon-btn" onclick="toggleSimpleCalc()" title="Open Calculator">
+            <button class="icon-btn" onclick="toggleSimpleCalc()" title="Calculator">
                 <i class="fa-solid fa-calculator"></i>
             </button>
         </div>
     </header>
 
-    <!-- SIMPLE CALC -->
-    <div id="simple-calc-modal" aria-hidden="true">
-        <div class="sc-header">
-            <span>Simple Calculator</span>
-            <span style="cursor:pointer;" onclick="toggleSimpleCalc()"><i class="fa-solid fa-times"></i></span>
+    <div id="simple-calc-modal">
+        <div style="display:flex; justify-content:space-between; margin-bottom:10px; color:#8b949e;">
+            <span><i class="fa-solid fa-microchip"></i> Basic Calc</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleSimpleCalc()"></i>
         </div>
         <div class="sc-display" id="scDisplay">0</div>
-        <div class="sc-grid"></div>
+        <div class="sc-grid">
+            <!-- Buttons are added dynamically by script.js; this empty container is correct -->
+        </div>
     </div>
 
-    <!-- MAIN -->
     <main>
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search formulas..." oninput="filterFormulas()"/>
+            <input type="text" id="searchInput" placeholder="Search physics formulas (e.g., Force, Energy, Wave)..." oninput="filterFormulas()"/>
         </div>
 
         <div class="tags-container" id="categoryTags">
@@ -81,26 +76,25 @@
             <span class="tag" onclick="filterCategory('Quantum', this)">Quantum</span>
         </div>
 
-        <div id="formulas-container" aria-live="polite"></div>
+        <div id="formulas-container">
+            <!-- formulas injected by script.js -->
+        </div>
     </main>
 
-    <!-- AI OPEN BUTTON -->
-    <div class="chat-toggle-btn" onclick="toggleChat()">
+    <div class="chat-toggle-btn" onclick="toggleChat()" aria-label="Open AI">
         <i class="fa-solid fa-robot"></i>
     </div>
 
-    <!-- AI WIDGET -->
-    <div id="ai-widget" aria-hidden="true">
+    <div id="ai-widget">
         <div class="chat-header">
-            <span><i class="fa-solid fa-brain"></i> Custom AI Assistant</span>
-            <i class="fa-solid fa-times" style="cursor:pointer;" onclick="toggleChat()"></i>
+            <span><i class="fa-solid fa-brain"></i> Physics AI Assistant</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleChat()"></i>
         </div>
         <div class="iframe-container">
-            <iframe id="aiFrame" src="" allow="microphone"></iframe>
+            <iframe id="aiFrame" src="about:blank" allow="microphone"></iframe>
         </div>
     </div>
 
-    <!-- MAIN JS -->
     <script src="script.js"></script>
 </body>
-    </html>
+                </html>
