@@ -151,7 +151,7 @@ main { padding: 25px 5%; max-width: 900px; margin: auto; }
     border-radius:8px; font-size:1.1em; color:var(--success-color); text-align:center; 
     margin:20px 0; word-break:break-all; font-family: monospace;
 }
-.copy-btn { width:100%; padding:12px; background-color:var(--primary-color); color:white; border:none; border-radius:8px; cursor:pointer; }
+.copy-btn { width:100%; padding:12px; background-color:var(--primary-color); color:white; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
 
 #copy-toast { 
     visibility:hidden; min-width:280px; background-color:var(--success-color); 
@@ -232,4 +232,4 @@ main { padding: 25px 5%; max-width: 900px; margin: auto; }
     header { padding: 15px 3%; }
     .donate-btn span { display: none; }
     .search-container input { font-size: 16px; }
-        }
+            }
