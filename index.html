@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>Quantum Solver Pro - Ultimate Physics</title>
+    <title>Quantum Solver Pro</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -15,8 +15,8 @@
 
     <div id="intro-screen">
         <div class="intro-content">
-            <h1 class="intro-name">Quantum Solver </h1>
-            <p class="intro-tagline"></p>
+            <h1 class="intro-name">Quantum Solver Pro</h1>
+            <p class="intro-tagline">Master Physics. AI.</p>
             <p class="intro-credit">Created by Utkarsh Maurya</p>
         </div>
     </div>
@@ -57,7 +57,24 @@
         </div>
         <div class="sc-display" id="scDisplay">0</div>
         <div class="sc-grid">
-            <!-- Buttons are added dynamically by script.js; this empty container is correct -->
+            <button class="sc-btn clear" onclick="clearCalc()">AC</button>
+            <button class="sc-btn del" onclick="backspaceCalc()"><i class="fa-solid fa-delete-left"></i></button>
+            <button class="sc-btn op" onclick="addToCalc('/')">÷</button>
+            <button class="sc-btn op" onclick="addToCalc('*')">×</button>
+            <button class="sc-btn" onclick="addToCalc('7')">7</button>
+            <button class="sc-btn" onclick="addToCalc('8')">8</button>
+            <button class="sc-btn" onclick="addToCalc('9')">9</button>
+            <button class="sc-btn op" onclick="addToCalc('-')">−</button>
+            <button class="sc-btn" onclick="addToCalc('4')">4</button>
+            <button class="sc-btn" onclick="addToCalc('5')">5</button>
+            <button class="sc-btn" onclick="addToCalc('6')">6</button>
+            <button class="sc-btn op" onclick="addToCalc('+')">+</button>
+            <button class="sc-btn" onclick="addToCalc('1')">1</button>
+            <button class="sc-btn" onclick="addToCalc('2')">2</button>
+            <button class="sc-btn" onclick="addToCalc('3')">3</button>
+            <button class="sc-btn op" style="grid-row: span 2; background-color: var(--success-color);" onclick="calculateResult()">=</button>
+            <button class="sc-btn" onclick="addToCalc('0')" style="grid-column: span 2;">0</button>
+            <button class="sc-btn" onclick="addToCalc('.')">.</button>
         </div>
     </div>
 
@@ -77,11 +94,10 @@
         </div>
 
         <div id="formulas-container">
-            <!-- formulas injected by script.js -->
-        </div>
+            </div>
     </main>
 
-    <div class="chat-toggle-btn" onclick="toggleChat()" aria-label="Open AI">
+    <div class="chat-toggle-btn" onclick="toggleChat()">
         <i class="fa-solid fa-robot"></i>
     </div>
 
@@ -97,4 +113,4 @@
 
     <script src="script.js"></script>
 </body>
-                </html>
+    </html>
