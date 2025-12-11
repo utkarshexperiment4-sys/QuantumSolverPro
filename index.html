@@ -81,7 +81,7 @@
     <main>
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search physics formulas (e.g., Force, Energy, Wave)..." oninput="filterFormulas()"/>
+            <input type="text" id="searchInput" placeholder="Search physics formulas..." oninput="filterFormulas()"/>
         </div>
 
         <div class="tags-container" id="categoryTags">
@@ -93,8 +93,7 @@
             <span class="tag" onclick="filterCategory('Quantum', this)">Quantum</span>
         </div>
 
-        <div id="formulas-container">
-            </div>
+        <div id="formulas-container"></div>
     </main>
 
     <div class="chat-toggle-btn" onclick="toggleChat()">
@@ -110,36 +109,25 @@
             <iframe id="aiFrame" src="about:blank" allow="microphone"></iframe>
         </div>
     </div>
+
     <script src="script.js"></script>
 
-<div class="legal-links" style="text-align: center; padding: 20px;">
-    <a href="privacy.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">गोपनीयता नीति</a>
-    <span style="color: #616161;">|</span>
-    <a href="about.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">हमारे बारे में</a>
-    <span style="color: #616161;">|</span>
-    <a href="contact.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">संपर्क करें</a>
-</div>
-            <div class="iframe-container">
-            <iframe id="aiFrame" src="about:blank" allow="microphone"></iframe>
-        </div>
+    <div class="legal-links" style="text-align: center; padding: 20px;">
+        <a href="privacy.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">गोपनीयता नीति</a>
+        <span style="color: #616161;">|</span>
+        <a href="about.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">हमारे बारे में</a>
+        <span style="color: #616161;">|</span>
+        <a href="contact.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">संपर्क करें</a>
     </div>
-    <script src="script.js"></script>
 
-<div class="legal-links" style="text-align: center; padding: 20px;">
-    <a href="privacy.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">गोपनीयता नीति</a>
-    <span style="color: #616161;">|</span>
-    <a href="about.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">हमारे बारे में</a>
-    <span style="color: 616161;">|</span>
-    <a href="contact.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">संपर्क करें</a>
-</div>
-
+    <!-- GA4 Script At The Very End -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K62QYD6DTW"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-K62QYD6DTW');
     </script>
-    </body>
-</html>
+
+</body>
+    </html>
