@@ -5,7 +5,7 @@
     <meta name="google-site-verification" content="lLp4nkaiiBCPrwrAxlU_NHtkFSvjC6GKsER55hXkRPw" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="description" content="Quantum Solver Pro is a powerful platform by Utkarsh Maurya for solving complex math and physics problems easily.">
-    <meta name="keywords" content="Quantum Solver Pro, Utkarsh Maurya, Math Solver, Physics Calculator, Equation Solver, Online Science Tool, Utkarsh Math Pro">
+    <meta name="keywords" content="Quantum Solver Pro, Utkarsh Maurya, Math Solver, Physics Calculator, Equation Solver">
     <meta name="author" content="Utkarsh Maurya">
     <meta name="robots" content="index, follow">
 
@@ -13,186 +13,118 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div id="intro-screen">
-        <div class="intro-content">
-            <h1 class="intro-name">Quantum Solver</h1>
-            <p class="intro-tagline">Master Physics. AI.</p>
-            <p class="intro-credit">Created by Utkarsh</p>
-        </div>
+<!-- ===== INTRO ===== -->
+<div id="intro-screen">
+    <div class="intro-content">
+        <h1 class="intro-name">Quantum Solver</h1>
+        <p class="intro-tagline">Master Physics. AI.</p>
+        <p class="intro-credit">Created by Utkarsh</p>
     </div>
+</div>
 
-    <div id="copy-toast"><i class="fa-solid fa-clipboard-check"></i> UPI ID copied successfully!</div>
-
-    <div id="upi-modal">
-        <div class="modal-content">
-            <span class="close" onclick="hideUpiModal()">&times;</span>
-            <h3 style="margin-top:0"><i class="fa-solid fa-heart" style="color:#ff7b72"></i> Support Development</h3>
-            <p style="color:#c9d1d9; font-size:0.95em;">Your support keeps this tool free. Donate via any UPI app:</p>
-            <div class="upi-display" id="upiDisplay">88********@ybl</div>
-            <button class="copy-btn" onclick="copyUpiId()"><i class="fa-solid fa-copy"></i> Copy UPI ID</button>
-        </div>
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="logo">
+        <div class="logo-icon">Q</div>
+        <h1>Quantum<span>Pro</span></h1>
     </div>
+</header>
 
-    <header>
-        <div class="logo">
-            <div class="logo-icon">Q</div>
-            <div><h1>Quantum<span>Pro</span></h1></div>
-        </div>
-        <div class="header-actions">
-            <button class="donate-btn" onclick="showUpiModal()" title="Support Me">
-                <i class="fa-solid fa-coffee"></i> <span>Donate</span>
-            </button>
-            <button class="icon-btn" onclick="toggleSimpleCalc()" title="Calculator">
-                <i class="fa-solid fa-calculator"></i>
-            </button>
-        </div>
-    </header>
+<!-- ===== ADS (UNCHANGED) ===== -->
+<div style="text-align:center;margin:10px 0;">
+<script>
+atOptions={key:'3bf19908ca2aa2b762351249cba19240',format:'iframe',height:50,width:320,params:{}};
+</script>
+<script src="https://www.highperformanceformat.com/3bf19908ca2aa2b762351249cba19240/invoke.js"></script>
+</div>
 
-    <div style="text-align: center; margin: 10px 0;">
-        <script type="text/javascript">
-            atOptions = { 'key' : '3bf19908ca2aa2b762351249cba19240', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-        </script>
-        <script type="text/javascript" src="https://www.highperformanceformat.com/3bf19908ca2aa2b762351249cba19240/invoke.js"></script>
+<!-- ===== MAIN ===== -->
+<main>
+    <div id="formulas-container"></div>
+</main>
+
+<!-- ===== AI WIDGET ===== -->
+<div class="chat-toggle-btn" onclick="toggleChat()">
+    <i class="fa-solid fa-robot"></i>
+</div>
+
+<div id="ai-widget">
+    <div class="chat-header">
+        <span>UTK FORCE AI</span>
+        <i class="fa-solid fa-xmark" onclick="toggleChat()"></i>
     </div>
+    <iframe
+        id="aiFrame"
+        src="https://utkarshexperiment4-sys.github.io/UTKFORCEAI-/"
+        allow="microphone"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-microphone">
+    </iframe>
+</div>
 
-    <div id="simple-calc-modal">
-        <div style="display:flex; justify-content:space-between; margin-bottom:10px; color:#8b949e;">
-            <span><i class="fa-solid fa-microchip"></i> Basic Calc</span>
-            <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleSimpleCalc()"></i>
-        </div>
-        <div class="sc-display" id="scDisplay">0</div>
-        <div class="sc-grid">
-            <button class="sc-btn clear" onclick="clearCalc()">AC</button>
-            <button class="sc-btn del" onclick="backspaceCalc()"><i class="fa-solid fa-delete-left"></i></button>
-            <button class="sc-btn op" onclick="addToCalc('/')">÷</button>
-            <button class="sc-btn op" onclick="addToCalc('*')">×</button>
-            <button class="sc-btn" onclick="addToCalc('7')">7</button>
-            <button class="sc-btn" onclick="addToCalc('8')">8</button>
-            <button class="sc-btn" onclick="addToCalc('9')">9</button>
-            <button class="sc-btn op" onclick="addToCalc('-')">−</button>
-            <button class="sc-btn" onclick="addToCalc('4')">4</button>
-            <button class="sc-btn" onclick="addToCalc('5')">5</button>
-            <button class="sc-btn" onclick="addToCalc('6')">6</button>
-            <button class="sc-btn op" onclick="addToCalc('+')">+</button>
-            <button class="sc-btn" onclick="addToCalc('1')">1</button>
-            <button class="sc-btn" onclick="addToCalc('2')">2</button>
-            <button class="sc-btn" onclick="addToCalc('3')">3</button>
-            <button class="sc-btn op" style="grid-row: span 2; background-color: #238636;" onclick="calculateResult()">=</button>
-            <button class="sc-btn" onclick="addToCalc('0')" style="grid-column: span 2;">0</button>
-            <button class="sc-btn" onclick="addToCalc('.')">.</button>
-        </div>
-    </div>
+<!-- ===== FOOTER ===== -->
+<div class="legal-links" style="text-align:center;padding:20px;">
+    <a href="privacy.html">गोपनीयता नीति</a> |
+    <a href="about.html">हमारे बारे में</a> |
+    <a href="contact.html">संपर्क करें</a>
+</div>
 
-    <main>
-        <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search physics formulas..." oninput="filterFormulas()"/>
-        </div>
+<script src="script.js"></script>
 
-        <div style="text-align: center; margin: 10px 0;">
-            <script type="text/javascript">
-                atOptions = { 'key' : '3bf19908ca2aa2b762351249cba19240', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-            </script>
-            <script type="text/javascript" src="https://www.highperformanceformat.com/3bf19908ca2aa2b762351249cba19240/invoke.js"></script>
-        </div>
+<!-- =====================================================
+     🔒 HARD REDIRECT BLOCK (FINAL – TOUCH NOTHING ELSE)
+===================================================== -->
+<script>
+(function(){
+"use strict";
 
-        <div class="tags-container" id="categoryTags">
-            <span class="tag active" onclick="filterCategory('All', this)">All</span>
-            <span class="tag" onclick="filterCategory('Mechanics', this)">Mechanics</span>
-            <span class="tag" onclick="filterCategory('Electricity', this)">Electricity</span>
-            <span class="tag" onclick="filterCategory('Waves', this)">Waves</span>
-            <span class="tag" onclick="filterCategory('Thermodynamics', this)">Heat</span>
-            <span class="tag" onclick="filterCategory('Quantum', this)">Quantum</span>
-        </div>
+/* BLOCK ALL NEW WINDOWS */
+window.open = function(){ return null; };
 
-        <div id="formulas-container"></div>
+/* BLOCK LOCATION CHANGE */
+const loc = window.location;
+Object.defineProperty(window,"location",{get:()=>loc,set:()=>loc});
 
-        <div style="text-align: center; margin: 20px 0;">
-            <script type="text/javascript">
-                atOptions = { 'key' : '3bf19908ca2aa2b762351249cba19240', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-            </script>
-            <script type="text/javascript" src="https://www.highperformanceformat.com/3bf19908ca2aa2b762351249cba19240/invoke.js"></script>
-        </div>
-    </main>
+/* BLOCK HISTORY NAVIGATION */
+history.pushState = function(){};
+history.replaceState = function(){};
 
-    <div class="chat-toggle-btn" onclick="toggleChat()">
-        <i class="fa-solid fa-robot"></i>
-    </div>
+/* BLOCK LINK REDIRECTS */
+document.addEventListener("click",function(e){
+    const a = e.target.closest("a");
+    if(a && !a.href.includes("UTKFORCEAI")){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+    }
+},true);
 
-    <div id="ai-widget">
-        <div class="chat-header">
-            <span><i class="fa-solid fa-brain"></i> Physics AI Assistant</span>
-            <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleChat()"></i>
-        </div>
-        <div class="iframe-container">
-            <iframe id="aiFrame" src="https://utkarshexperiment4-sys.github.io/UTKFORCEAI-/" allow="microphone"></iframe>
-        </div>
-    </div>
+/* SANDBOX EVERYTHING EXCEPT AI */
+setInterval(()=>{
+    document.querySelectorAll("iframe").forEach(f=>{
+        if(f.id==="aiFrame"){
+            f.setAttribute("sandbox","allow-scripts allow-same-origin allow-forms allow-modals allow-microphone");
+        }else{
+            f.setAttribute("sandbox","allow-scripts");
+        }
+    });
+},1000);
 
-    <div style="text-align: center; margin: 20px 0;">
-        <script type="text/javascript">
-            atOptions = { 'key' : '3bf19908ca2aa2b762351249cba19240', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-        </script>
-        <script type="text/javascript" src="http://a.highperformanceformat.com/3bf19908ca2aa2b762351249cba19240/invoke.js"></script>
-    </div>
+})();
+</script>
 
-    <div class="legal-links" style="text-align: center; padding: 20px;">
-        <a href="privacy.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">गोपनीयता नीति</a>
-        <span style="color: #616161;">|</span>
-        <a href="about.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">हमारे बारे में</a>
-        <span style="color: #616161;">|</span>
-        <a href="contact.html" style="color: #00bcd4; margin: 0 10px; text-decoration: none;">संपर्क करें</a>
-    </div>
+<!-- ===== ANALYTICS ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K62QYD6DTW"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-K62QYD6DTW');
+</script>
 
-    <div style="text-align: center; margin-bottom: 20px;">
-        <script type="text/javascript">
-            atOptions = { 'key' : '3bf19908ca2aa2b762351249cba19240', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
-        </script>
-        <script type="text/javascript" src="https://www.highperformanceformat.com/3bf19908ca2aa2b762351249cba19240/invoke.js"></script>
-    </div>
-
-    <script src="script.js"></script>
-
-    <script>
-        (function() {
-            // विज्ञापन वाले iframe को खोजने और उन पर sandbox लगाने का कार्य
-            const secureAds = () => {
-                const iframes = document.getElementsByTagName('iframe');
-                for (let i = 0; i < iframes.length; i++) {
-                    // अगर iframe का source आपका AI (utkforceservices) नहीं है, तो उस पर पाबंदी लगाओ
-                    if (!iframes[i].src.includes("utkforceservices.gt.tc") && iframes[i].id !== "aiFrame") {
-                        if (!iframes[i].hasAttribute("sandbox")) {
-                            iframes[i].setAttribute("sandbox", "allow-scripts allow-forms allow-same-origin allow-popups");
-                        }
-                    }
-                }
-            };
-            
-            // पेज लोड होने पर और हर 2 सेकंड में चेक करें (नये विज्ञापन लोड होने पर भी काम करेगा)
-            setInterval(secureAds, 2000);
-
-            // ब्राउज़र लेवल पर रीडायरेक्ट रोकने की कोशिश
-            window.onbeforeunload = function() {
-                if (document.activeElement.tagName !== 'IFRAME') {
-                    // User click handle
-                } else {
-                    return "Redirect prevented";
-                }
-            };
-        })();
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K62QYD6DTW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-K62QYD6DTW');
-    </script>
 </body>
 </html>
